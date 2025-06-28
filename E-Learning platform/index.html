@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduKey - E-Learning Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">EduKey</div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showPage('dashboard')" class="active">Dashboard</a></li>
+                <li><a href="#" onclick="showPage('courses')">Courses</a></li>
+                <li><a href="#" onclick="showPage('progress')">Progress</a></li>
+                <li><a href="#" onclick="showPage('video')">Current Lesson</a></li>
+            </ul>
+            <div class="user-profile">
+                <div class="profile-pic">OG</div>
+                <span>Om Gupta</span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+      
+        <div id="dashboard" class="page active">
+            <div class="dashboard-header">
+                <div class="welcome-text">
+                    <h1>Welcome back, Om!</h1>
+                    <p>Continue your learning journey and achieve your goals.</p>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">12</div>
+                    <h3>Courses Enrolled</h3>
+                    <p>Active learning paths</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">156</div>
+                    <h3>Hours Learned</h3>
+                    <p>Total study time</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">8</div>
+                    <h3>Certificates</h3>
+                    <p>Earned achievements</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">94%</div>
+                    <h3>Average Score</h3>
+                    <p>Quiz performance</p>
+                </div>
+            </div>
+
+            <h2>Continue Learning</h2>
+            <div class="course-grid">
+                <div class="course-card" onclick="showPage('video')">
+                    <div class="course-thumbnail">
+                        <span>📱</span>
+                    </div>
+                    <div class="course-info">
+                        <h3 class="course-title">React Native Development</h3>
+                        <p class="course-instructor">by Sarah Johnson</p>
+                        <div class="course-meta">
+                            <div class="course-rating">
+                                <span class="stars">⭐⭐⭐⭐⭐</span>
+                                <span>4.8 (320)</span>
+                            </div>
+                            <span>12h 30m</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                        <button class="btn">Continue Learning</button>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-thumbnail">
+                        <span>🎨</span>
+                    </div>
+                    <div class="course-info">
+                        <h3 class="course-title">UI/UX Design Principles</h3>
+                        <p class="course-instructor">by Mike Chen</p>
+                        <div class="course-meta">
+                            <div class="course-rating">
+                                <span class="stars">⭐⭐⭐⭐⭐</span>
+                                <span>4.9 (180)</span>
+                            </div>
+                            <span>8h 45m</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 30%"></div>
+                        </div>
+                        <button class="btn">Continue Learning</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="courses" class="page">
+            <h1>All Courses</h1>
+            
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Search courses..." onkeyup="filterCourses(this.value)">
+            </div>
+
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterByCategory('all')">All</button>
+                <button class="filter-btn" onclick="filterByCategory('programming')">Programming</button>
+                <button class="filter-btn" onclick="filterByCategory('design')">Design</button>
+                <button class="filter-btn" onclick="filterByCategory('business')">Business</button>
+                <button class="filter-btn" onclick="filterByCategory('marketing')">Marketing</button>
+            </div>
+
+            <div class="course-grid" id="courseGrid">
+                <div class="course-card" data-category="programming">
+                    <div class="course-thumbnail">
+                        <span>⚛️</span>
+                    </div>
+                    <div class="course-info">
+                        <h3 class="course-title">Complete React Course</h3>
+                        <p class="course-instructor">by Alex Smith</p>
+                        <div class="course-meta">
+                            <div class="course-rating">
+                                <span class="stars">⭐⭐⭐⭐⭐</span>
+                                <span>4.7 (450)</span>
+                            </div>
+                            <span>15h 20m</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <button class="btn">Enroll Now</button>
+                    </div>
+                </div>
+
+                <div class="course-card" data-category="programming">
+                    <div class="course-thumbnail">
+                        <span>🐍</span>
+                    </div>
+                    <div class="course-info">
+                        <h3 class="course-title">Python for Beginners</h3>
+                        <p class="course-instructor">by Maria Garcia</p>
+                        <div class="course-meta">
+                            <div class="course-rating">
+                                <span class="stars">⭐⭐⭐⭐⭐</span>
+                                <span>4.6 (380)</span>
+                            </div>
+                            <span>20h 15m</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                        <button class="btn">Continue</button>
+                    </div>
+                </div>
+
+                <div class="course-card" data-category="design">
+                    <div class="course-thumbnail">
+                        <span>🎨</span>
+                    </div>
+                    <div class="course-info">
+                        <h3 class="course-title">Graphic Design Mastery</h3>
+                        <p class="course-instructor">by Emma Wilson</p>
+                        <div class="course-meta">
+                            <div class="course-rating">
+                                <span class="stars">⭐⭐⭐⭐⭐</span>
+                                <span>4.8 (290)</span>
+                            </div>
+                            <span>18h 30m</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 45%"></div>
+                        </div>
+                        <button class="btn">Continue</button>
+                    </div>
+                </div>
+
+                <div class="course-card" data-category="business">
+                    <div class="course-thumbnail">
+                        <span>💼</span>
+                    </div>
+                    <div class="course-info">
+                        <h3 class="course-title">Business Strategy</h3>
+                        <p class="course-instructor">by Robert Johnson</p>
+                        <div class="course-meta">
+                            <div class="course-rating">
+                                <span class="stars">⭐⭐⭐⭐⭐</span>
+                                <span>4.5 (220)</span>
+                            </div>
+                            <span>12h 45m</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <button class="btn">Enroll Now</button>
+                    </div>
+                </div>
+
+                <div class="course-card" data-category="marketing">
+                    <div class="course-thumbnail">
+                        <span>📊</span>
+                    </div>
+                    <div class="course-info">
+                        <h3 class="course-title">Digital Marketing</h3>
+                        <p class="course-instructor">by Lisa Brown</p>
+                        <div class="course-meta">
+                            <div class="course-rating">
+                                <span class="stars">⭐⭐⭐⭐⭐</span>
+                                <span>4.7 (350)</span>
+                            </div>
+                            <span>16h 20m</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 20%"></div>
+                        </div>
+                        <button class="btn">Continue</button>
+                    </div>
+                </div>
+
+                <div class="course-card" data-category="programming">
+                    <div class="course-thumbnail">
+                        <span>📱</span>
+                    </div>
+                    <div class="course-info">
+                        <h3 class="course-title">React Native Development</h3>
+                        <p class="course-instructor">by Sarah Johnson</p>
+                        <div class="course-meta">
+                            <div class="course-rating">
+                                <span class="stars">⭐⭐⭐⭐⭐</span>
+                                <span>4.8 (320)</span>
+                            </div>
+                            <span>12h 30m</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                        <button class="btn">Continue</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="progress" class="page">
+            <h1>Your Learning Progress</h1>
+            
+            <div class="progress-overview">
+                <div class="progress-card">
+                    <h3>Overall Progress</h3>
+                    <div class="circular-progress"></div>
+                    <p>You've completed 60% of your enrolled courses</p>
+                </div>
+                
+                <div class="progress-card">
+                    <h3>This Week</h3>
+                    <div class="stat-number">8.5h</div>
+                    <p>Study time</p>
+                    <div class="progress-bar" style="margin-top: 1rem;">
+                        <div class="progress-fill" style="width: 85%"></div>
+                    </div>
+                    <small>Goal: 10h/week</small>
+                </div>
+                
+                <div class="progress-card">
+                    <h3>Streak</h3>
+                    <div class="stat-number">🔥 7</div>
+                    <p>Days in a row</p>
+                    <button class="btn" style="margin-top: 1rem;">Keep it going!</button>
+                </div>
+            </div>
+
+            <div class="progress-card">
+                <h3>Course Progress Details</h3>
+                <div style="margin-top: 2rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <div>
+                            <h4>React Native Development</h4>
+                            <p>Lesson 8 of 12 completed</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-weight: bold; color: #667eea;">67%</div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 67%"></div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <div>
+                            <h4>Python for Beginners</h4>
+                            <p>Lesson 17 of 20 completed</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-weight: bold; color: #667eea;">85%</div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 85%"></div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <div>
+                            <h4>UI/UX Design Principles</h4>
+                            <p>Lesson 3 of 10 completed</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-weight: bold; color: #667eea;">30%</div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 30%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+     
+        <div id="video" class="page">
+            <div class="video-player">
+                <h2>React Native - State Management</h2>
+                <p class="course-instructor">Course: React Native Development | Instructor: Sarah Johnson</p>
+                
+                <div class="video-container">
+                    <div class="video-placeholder" onclick="playVideo()">
+                        <span>▶️</span>
+                    </div>
+                </div>
+                
+                <div class="video-controls">
+                    <div>
+                        <button class="btn btn-secondary" onclick="previousLesson()">← Previous</button>
+                        <button class="btn" onclick="nextLesson()">Next Lesson →</button>
+                    </div>
+                    <div>
+                        <button class="btn btn-secondary" onclick="toggleBookmark()">🔖 Bookmark</button>
+                        <button class="btn btn-secondary" onclick="toggleNotes()">📝 Notes</button>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 1rem; padding: 1rem; background: #f8f9fa; border-radius: 10px;">
+                    <h4>Lesson Description</h4>
+                    <p>In this lesson, we'll explore state management in React Native applications. You'll learn about useState, useEffect, and how to manage complex state with useReducer. We'll also cover best practices for state organization and performance optimization.</p>
+                </div>
+            </div>
+
+            <div class="lesson-list">
+                <h3>Course Content</h3>
+                
+                <div class="lesson-item completed">
+                    <div class="lesson-number">1</div>
+                    <div>
+                        <h4>Introduction to React Native</h4>
+                        <p>15 min • Completed</p>
+                    </div>
+                </div>
+                
+                <div class="lesson-item completed">
+                    <div class="lesson-number">2</div>
+                    <div>
+                        <h4>Setting up Development Environment</h4>
+                        <p>25 min • Completed</p>
+                    </div>
+                </div>
+                
+                <div class="lesson-item completed">
+                    <div class="lesson-number">3</div>
+                    <div>
+                        <h4>Your First React Native App</h4>
+                        <p>30 min • Completed</p>
+                    </div>
+                </div>
+                
+                <div class="lesson-item completed">
+                    <div class="lesson-number">4</div>
+                    <div>
+                        <h4>Components and JSX</h4>
+                        <p>20 min • Completed</p>
+                    </div>
+                </div>
+                
+                <div class="lesson-item completed">
+                    <div class="lesson-number">5</div>
+                    <div>
+                        <h4>Styling with StyleSheet</h4>
+                        <p>35 min • Completed</p>
+                    </div>
+                </div>
+                
+                <div class="lesson-item completed">
+                    <div class="lesson-number">6</div>
+                    <div>
+                        <h4>Navigation Basics</h4>
+                        <p>40 min • Completed</p>
+                    </div>
+                </div>
+                
+                <div class="lesson-item completed">
+                    <div class="lesson-number">7</div>
+                    <div>
+                        <h4>Handling User Input</h4>
+                        <p>25 min • Completed</p>
+                    </div>
+                </div>
+                
+                <div class="lesson-item" style="background: rgba(102, 126, 234, 0.2); border: 2px solid #667eea;">
+                    <div class="lesson-number" style="background: #667eea;">8</div>
+                    <div>
+                        <h4>State Management 🎯</h4>
+                        <p>45 min • Current Lesson</p>
+                    </div>
+                </div>
+                
+                <div class="lesson-item">
+                    <div class="lesson-number" style="background: #ddd; color: #666;">9</div>
+                    <div>
+                        <h4>API Integration</h4>
+                        <p>50 min • Locked</p>
+                    </div>
+                </div>
+                
+                <div class="lesson-item">
+                    <div class="lesson-number" style="background: #ddd; color: #666;">10</div>
+                    <div>
+                        <h4>Testing Your App</h4>
+                        <p>35 min • Locked</p>
+                    </div>
+                </div>
+                
+                <div class="lesson-item">
+                    <div class="lesson-number" style="background: #ddd; color: #666;">11</div>
+                    <div>
+                        <h4>Performance Optimization</h4>
+                        <p>40 min • Locked</p>
+                    </div>
+                </div>
+                
+                <div class="lesson-item">
+                    <div class="lesson-number" style="background: #ddd; color: #666;">12</div>
+                    <div>
+                        <h4>Publishing Your App</h4>
+                        <p>30 min • Locked</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+
+        function showPage(pageId) {
+       
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+   
+            document.getElementById(pageId).classList.add('active');
+            
+          
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => link.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+    
+        function filterCourses(searchTerm) {
+            const courses = document.querySelectorAll('.course-card');
+            courses.forEach(course => {
+                const title = course.querySelector('.course-title').textContent.toLowerCase();
+                const instructor = course.querySelector('.course-instructor').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm.toLowerCase()) || instructor.includes(searchTerm.toLowerCase())) {
+                    course.style.display = 'block';
+                } else {
+                    course.style.display = 'none';
+                }
+            });
+        }
+
+        function filterByCategory(category) {
+            const courses = document.querySelectorAll('.course-card');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            
+
+            filterBtns.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+   
+            courses.forEach(course => {
+                if (category === 'all' || course.dataset.category === category) {
+                    course.style.display = 'block';
+                } else {
+                    course.style.display = 'none';
+                }
+            });
+        }
+
+    
+        let isPlaying = false;
+
+        function playVideo() {
+            const placeholder = document.querySelector('.video-placeholder');
+            if (!isPlaying) {
+                placeholder.innerHTML = '<span>⏸️</span>';
+                placeholder.style.background = 'rgba(0,0,0,0.8)';
+                isPlaying = true;
+                
+ 
+                setTimeout(() => {
+                    updateProgress();
+                }, 1000);
+            } else {
+                placeholder.innerHTML = '<span>▶️</span>';
+                placeholder.style.background = 'rgba(0,0,0,0.6)';
+                isPlaying = false;
+            }
+        }
+
+        function nextLesson() {
+            alert('Moving to next lesson: API Integration');
+     
+        }
+
+        function previousLesson() {
+            alert('Going back to: Handling User Input');
+            
+        }
+
+        function toggleBookmark() {
+            const btn = event.target;
+            if (btn.textContent.includes('🔖')) {
+                btn.textContent = '✅ Bookmarked';
+                btn.style.background = '#4caf50';
+                btn.style.color = 'white';
+            } else {
+                btn.textContent = '🔖 Bookmark';
+                btn.style.background = '';
+                btn.style.color = '';
+                btn.classList.add('btn-secondary');
+            }
+        }
+
+        function toggleNotes() {
+            alert('Notes feature would open a sidebar or modal for taking lesson notes');
+        }
+
+        function updateProgress() {
+       
+            const progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach(bar => {
+                if (bar.style.width === '65%') {
+                    bar.style.width = '70%';
+                }
+            });
+        }
+
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effects to cards
+            const cards = document.querySelectorAll('.course-card, .stat-card, .progress-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+       
+            setInterval(() => {
+                const studyTime = document.querySelector('.stat-card .stat-number');
+                if (studyTime && studyTime.textContent === '156') {
+                    let current = parseInt(studyTime.textContent);
+                    if (Math.random() > 0.95) { // Random chance to increment
+                        studyTime.textContent = (current + 1).toString();
+                    }
+                }
+            }, 30000); 
+
+        
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
+                });
+            });
+
+ 
+            const lessonItems = document.querySelectorAll('.lesson-item');
+            lessonItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    if (!this.classList.contains('completed') && this.querySelector('.lesson-number').style.background !== 'rgb(221, 221, 221)') {
+                        alert('Loading lesson: ' + this.querySelector('h4').textContent);
+                    } else if (this.querySelector('.lesson-number').style.background === 'rgb(221, 221, 221)') {
+                        alert('This lesson is locked. Complete previous lessons first!');
+                    }
+                });
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+
+            document.querySelectorAll('.course-card, .stat-card').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'all 0.6s ease';
+                observer.observe(el);
+            });
+        });
+
+        function enrollCourse(courseName) {
+            alert(`Successfully enrolled in: ${courseName}!\nYou can now access all course materials.`);
+        }
+
+     
+        let searchTimeout;
+        function enhancedSearch(input) {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                filterCourses(input.value);
+                
+                // Show search results count
+                const visibleCourses = document.querySelectorAll('.course-card[style*="block"], .course-card:not([style*="none"])').length;
+                console.log(`Found ${visibleCourses} courses matching your search`);
+            }, 300);
+        }
+
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function checkAchievements() {
+            const completedCourses = document.querySelectorAll('.lesson-item.completed').length;
+            if (completedCourses >= 5) {
+                // Show achievement notification
+                showNotification('🏆 Achievement Unlocked: Quick Learner!');
+            }
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(45deg, #667eea, #764ba2);
+                color: white;
+                padding: 1rem 2rem;
+                border-radius: 25px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                z-index: 1000;
+                animation: slideIn 0.5s ease;
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 5000);
+        }
+
+      
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize the app
+        setTimeout(() => {
+            showNotification('🎉 Welcome to EduKey! Start your learning journey today.');
+        }, 2000);
+    </script>
+</body>
+</html>
